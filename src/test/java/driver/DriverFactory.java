@@ -4,13 +4,10 @@ import config.ConfigManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-/**
- * Manages a ThreadLocal WebDriver instance.
- * Allows easy extension to multiple browsers later.
- */
 public class DriverFactory {
 
     private static final ThreadLocal<WebDriver> driverHolder = new ThreadLocal<>();
@@ -18,14 +15,29 @@ public class DriverFactory {
     public static void initDriver() {
         if (driverHolder.get() == null) {
 
-            String browser = ConfigManager.get("browser");
+            String browser = ConfigManager.get("browser"); // e.g. chrome or chrome-headless
             WebDriver driver;
 
             switch (browser.toLowerCase()) {
+
+                case "chrome-headless":
+                    WebDriverManager.chromedriver().setup();
+                    ChromeOptions headlessOptions = new ChromeOptions();
+                    headlessOptions.addArguments(
+                            "--headless=new",
+                            "--no-sandbox",
+                            "--disable-dev-shm-usage",
+                            "--disable-gpu",
+                            "--window-size=1920,1080"
+                    );
+                    driver = new ChromeDriver(headlessOptions);
+                    break;
+
                 case "chrome":
                 default:
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    ChromeOptions options = new ChromeOptions();
+                    driver = new ChromeDriver(options);
                     break;
             }
 

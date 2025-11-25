@@ -21,8 +21,8 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
-      - name: Run tests with Maven
-        run: mvn -B clean test
+      - name: Run tests with Maven (headless)
+        run: mvn -B clean test -Dbrowser=chrome-headless
 
       - name: Archive Cucumber HTML report
         if: always()
