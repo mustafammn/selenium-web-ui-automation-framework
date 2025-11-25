@@ -3,91 +3,112 @@
 [![Build Status](https://github.com/mustafammn/selenium-web-ui-automation-framework/actions/workflows/ci.yml/badge.svg)](https://github.com/mustafammn/selenium-web-ui-automation-framework/actions/workflows/ci.yml)
 ![Java](https://img.shields.io/badge/Java-17-blue)
 ![Maven](https://img.shields.io/badge/Maven-3.x-orange)
-![Tests](https://img.shields.io/badge/Reports-Cucumber%20HTML-brightgreen)
+![Reports](https://img.shields.io/badge/Reports-Cucumber%20HTML-brightgreen)
 
-🛠 Tech Stack
-A reusable, plug-and-play **Selenium Web UI Automation Framework** built using:
-- Java 17
-- Selenium WebDriver 4
-- Cucumber BDD
-- JUnit 4
-- WebDriverManager
-- Maven
-- HTML Test Reporting
-- GitHub Actions CI/CD
+---
 
-This framework works with **any web application** and is structured using Page Object Model (POM) with clean BDD design.
+## 🛠 Tech Stack
+
+A plug-and-play **Selenium Web UI Automation Framework** built with:
+
+- **Java 17**
+- **Selenium WebDriver 4**
+- **Cucumber BDD**
+- **JUnit 4**
+- **WebDriverManager**
+- **Maven**
+- **HTML Test Reporting**
+- **GitHub Actions CI/CD**
+
+Designed for **any web application**, leveraging Page Object Model (POM) and clean BDD principles.
 
 ---
 
 ## 🚀 Features
-- Clean Page Object Model (POM)
-- Cucumber BDD with readable scenarios
+
+- POM-based test structure
+- Cucumber BDD with human-readable scenarios
 - JUnit 4 stable runner
-- Config-driven test environment
-- Automatic ChromeDriver setup via WebDriverManager
-- HTML test reports
-- CI/CD ready with GitHub Actions
-- Fully extendable for parallel execution, Allure reports, and cross-browser testing
+- Configurable test environments
+- Auto driver management (via WebDriverManager)
+- Cucumber HTML test reports
+- Ready for CI/CD using GitHub Actions
+- Easily extendable for:
+  - Parallel execution
+  - Allure reporting
+  - Cross-browser testing
 
 ---
 
 ## 📂 Project Structure
 
+```
 selenium-web-ui-automation-framework
 ├── pom.xml
 ├── README.md
 └── src
-└── test
-├── java
-│ ├── config
-│ ├── driver
-│ ├── pages
-│ ├── steps
-│ └── runners
-└── resources
-├── config.properties
-└── features
-
-yaml
-Copy code
+    └── test
+        ├── java
+        │   ├── config
+        │   ├── driver
+        │   ├── pages
+        │   ├── steps
+        │   └── runners
+        └── resources
+            ├── config.properties
+            └── features
+```
 
 ---
 
 ## ⚙️ Configuration
 
-Configuration file:
+Main configuration file:
 
 `src/test/resources/config.properties`
 
 Example:
-
-properties
-
-`base.url=https://www.saucedemo.com/
+```
+base.url=https://www.saucedemo.com/
 browser=chrome
 implicit.wait=10
-page.load.timeout=20`
+page.load.timeout=20
+```
 
-▶️ Running Tests
-Run via Maven
-bash
-Copy code
+---
+
+## ▶️ Running Tests
+
+**Via Maven:**
+```sh
 mvn clean test
-Run via IntelliJ
-Open LoginTestRunner.java
+```
 
-Right-click → Run
+**Via IntelliJ:**
+Open `LoginTestRunner.java`, right-click → **Run**.
 
-📊 Test Reports
-After test execution, open:
+---
 
+## 📊 Test Reports
+
+After execution, reports are available at:
+```
 target/cucumber-report.html
-Right-click → Open in Browser (Chrome/Safari/Edge)
+```
+Right-click → Open in Browser.
 
-🤖 GitHub Actions CI/CD
-Workflow: .github/workflows/ci.yml
+---
 
-👤 Author
-Mustafa Nooristani
+## 🤖 GitHub Actions CI/CD
+
+Workflow configuration:
+```
+.github/workflows/ci.yml
+```
+
+---
+
+## 👤 Author
+
+**Mustafa Nooristani**  
 Senior QA Automation Engineer
