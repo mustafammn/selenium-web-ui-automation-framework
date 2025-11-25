@@ -15,7 +15,9 @@ public class DriverFactory {
     public static void initDriver() {
         if (driverHolder.get() == null) {
 
-            String browser = ConfigManager.get("browser"); // e.g. chrome or chrome-headless
+            // 👇 This line is the key: CI can override browser with -Dbrowser=chrome-headless
+            String browser = System.getProperty("browser", ConfigManager.get("browser"));
+
             WebDriver driver;
 
             switch (browser.toLowerCase()) {
