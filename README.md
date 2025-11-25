@@ -5,6 +5,7 @@
 ![Maven](https://img.shields.io/badge/Maven-3.x-orange)
 ![Tests](https://img.shields.io/badge/Reports-Cucumber%20HTML-brightgreen)
 
+🛠 Tech Stack
 A reusable, plug-and-play **Selenium Web UI Automation Framework** built using:
 - Java 17
 - Selenium WebDriver 4
@@ -61,11 +62,13 @@ Configuration file:
 
 Example:
 
-```properties
-base.url=https://www.saucedemo.com/
+properties
+
+`base.url=https://www.saucedemo.com/
 browser=chrome
 implicit.wait=10
-page.load.timeout=20
+page.load.timeout=20`
+
 ▶️ Running Tests
 Run via Maven
 bash
@@ -79,31 +82,11 @@ Right-click → Run
 📊 Test Reports
 After test execution, open:
 
-bash
-Copy code
 target/cucumber-report.html
 Right-click → Open in Browser (Chrome/Safari/Edge)
 
 🤖 GitHub Actions CI/CD
 Workflow: .github/workflows/ci.yml
-
-Automatically:
-
-Runs tests on push & pull requests
-
-Archives the HTML report as an artifact
-
-Shows build status via badge
-
-🛠 Tech Stack
-Layer	Technology
-Language	Java 17
-UI Automation	Selenium WebDriver 4
-BDD	Cucumber JVM
-Runner	JUnit 4
-Build Tool	Maven
-Driver Mgmt	WebDriverManager
-CI/CD	GitHub Actions
 
 👤 Author
 Mustafa Nooristani
